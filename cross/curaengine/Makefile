@@ -3,6 +3,7 @@ PKG_VERS = 15.02.1
 PKG_EXT = tar.gz
 PKG_DIST_SITE = https://github.com/Ultimaker/CuraEngine/archive
 PKG_DIST_NAME = $(PKG_VERS).$(PKG_EXT)
+PKG_DIST_FILE = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIR = CuraEngine-$(PKG_VERS)
 
 DEPENDS = 
