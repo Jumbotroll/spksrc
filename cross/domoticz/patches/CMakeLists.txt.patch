@@ -1,6 +1,6 @@
 Index: CMakeLists.txt
 ===================================================================
---- CMakeLists.txt	(revision 2287)
+--- CMakeLists.txt	(revision 2382)
 +++ CMakeLists.txt	(working copy)
 @@ -72,10 +72,10 @@
    #ADD_DEFINITIONS( -Wall -O0 -ggdb )
