@@ -1,0 +1,22 @@
+--- hardware/RFLink.cpp
++++ hardware/RFLink.cpp	
+@@ -420,6 +420,7 @@
+ 	m_LastReceivedTime = mytime(NULL);
+ 
+ 	std::vector<std::string> results;
++	std::string Name_ID="";
+ 	StringSplit(sLine, ";", results);
+ 	if (results.size() < 2)
+ 		return false; //not needed
+@@ -441,7 +442,10 @@
+ #endif
+ 
+ 	std::string Sensor_ID = results[1];
+-	std::string Name_ID = results[2];
++	if(results.size() >2)
++	{	
++		std::string Name_ID = results[2];
++	}
+ 	if (results.size() == 3)
+ 	{
+ 		//Status reply
