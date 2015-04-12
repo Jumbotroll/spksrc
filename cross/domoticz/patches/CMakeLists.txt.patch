@@ -17,16 +17,16 @@ Index: CMakeLists.txt
  
      GET_FILENAME_COMPONENT(_name ${_input} NAME)
      SET(_source "${CMAKE_CURRENT_SOURCE_DIR}/${_input}")
-@@ -258,8 +258,6 @@
- 
- ## Link libraries
+@@ -293,8 +293,6 @@
+   MESSAGE(STATUS "Python not found on your system, to enable python support, install 'python-dev'")
+ ENDIF(PYTHONLIBS_FOUND)
  
 -option(USE_STATIC_BOOST "Build with static BOOST libraries" YES)
 -set(Boost_USE_STATIC_LIBS ${USE_STATIC_BOOST})
  set(Boost_USE_MULTITHREADED ON)
  unset(Boost_INCLUDE_DIR CACHE)
  unset(Boost_LIBRARY_DIRS CACHE)
-@@ -345,39 +343,6 @@
+@@ -390,39 +388,6 @@
    target_link_libraries(domoticz ${OpenZWave})
    include_directories(${CMAKE_SOURCE_DIR}/hardware/openzwave) 
    add_definitions(-DWITH_OPENZWAVE)
@@ -66,7 +66,7 @@ Index: CMakeLists.txt
  else()
    MESSAGE(STATUS "==== OpenZWave not found, support disabled!")
  ENDIF(OpenZWave)
-@@ -406,7 +371,7 @@
+@@ -451,7 +416,7 @@
    message(STATUS "Not building on Raspberry Pi. GPIO support disabled.")
  ENDIF(RaspberryPi)
  
