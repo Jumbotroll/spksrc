@@ -23,6 +23,7 @@ start_daemon ()
     # Create device
     test -e /dev/ttyUSB0 || mknod /dev/ttyUSB0 c 188 0
     chmod 777 /dev/ttyUSB0
+    cp /var/packages${PACKAGE}/scripts/50-usbttyacm.rules /lib/udev/rules.d/50-usbttyacm.rules
 
     su - ${USER} -c "${DOMOTICZ} -www ${PORT} -approot ${INSTALL_DIR}/ -dbase ${DB_FILE} &> $LOGFILE & echo \$! > ${PID_FILE}"
 }
