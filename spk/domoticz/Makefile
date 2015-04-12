@@ -1,5 +1,5 @@
 SPK_NAME = domoticz
-SPK_VERS = 2.0.2287
+SPK_VERS = 2.0.2382
 SPK_REV = 6
 SPK_ICON = src/domoticz.png
 DSM_UI_DIR = app
@@ -12,7 +12,7 @@ DESCRIPTION_FRE = Domoticz est un système domotique qui vous permet de surveill
 ADMIN_PORT = 8084
 RELOAD_UI = yes
 DISPLAY_NAME = Domoticz
-CHANGELOG = "1. Added support for OpenZWave<br>2. Updated to SVN revision 2287"
+CHANGELOG = "1. Added support for OpenZWave<br>2. Updated to SVN revision 2382"
 
 HOMEPAGE = http://www.domoticz.com/
 LICENSE  = 
@@ -34,6 +34,7 @@ include ../../mk/spksrc.spk.mk
 domoticz_extra_install:
 	install -m 755 -d $(STAGING_DIR)/app
 	install -m 644 src/app/config $(STAGING_DIR)/app/config
+	install -m 644 src/50-usbttyacm.rules $(STAGING_DIR)/scripts
 	install -m 755 -d $(STAGING_DIR)/app/images
 	for size in 16 24 32 48 72 ; do \
 	    convert $(SPK_ICON) -thumbnail $${size}x$${size} \
