@@ -36,7 +36,7 @@ include ../../mk/spksrc.cross-cc.mk
 -include $(WORK_DIR)/python-cc.mk
 
 myConfigure:
-	@echo "using gcc : `$(TC_PATH)$(TC_PREFIX)gcc -dumpversion` : $(TC_PATH)$(TC_PREFIX)g++ : <address-model>\"$(ADDRESS_MODEL)\" <cflags>\"$(CFLAGS)\" <cxxflags>\"$(CXXFLAGS)\" <linkflags>\"-L$(STAGING_INSTALL_PREFIX)/lib/$(PYTHON_INC_DIR) $(LDFLAGS)\" <link>\"shared\" ; " > $(WORK_DIR)/$(PKG_DIR)/tools/build/v2/user-config.jam
+	@echo "using gcc : `$(TC_PATH)$(TC_PREFIX)gcc -dumpversion` : $(TC_PATH)$(TC_PREFIX)g++ : <address-model>\"$(ADDRESS_MODEL)\" <cflags>\"$(CFLAGS)\" <cxxflags>\"$(CXXFLAGS)\" <linkflags>\"$(LDFLAGS)\" <link>\"shared\" ; " > $(WORK_DIR)/$(PKG_DIR)/tools/build/v2/user-config.jam
 	@echo "using python : $(PYTHON_VERSION) : : $(STAGING_INSTALL_PREFIX)/$(PYTHON_INC_DIR) ;" >> $(WORK_DIR)/$(PKG_DIR)/tools/build/v2/user-config.jam
 	@echo "project : requirements <cxxflags>$(OFLAGS) ;" >> $(WORK_DIR)/$(PKG_DIR)/tools/build/v2/user-config.jam
 	$(RUN) ./bootstrap.sh $(CONFIGURE_ARGS)

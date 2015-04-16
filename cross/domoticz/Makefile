@@ -8,7 +8,7 @@ PKG_DIST_SITE = svn://svn.code.sf.net/p/domoticz/code
 PKG_DIST_FILE = $(PKG_NAME)-r$(PKG_SVN_REV).$(PKG_EXT)
 PKG_DIR = $(PKG_NAME)-r*
 
-DEPENDS = cross/boost cross/sqlite cross/curl cross/openzwave cross/cp210x
+DEPENDS = cross/python cross/boost cross/sqlite cross/curl cross/openzwave cross/cp210x
 
 HOMEPAGE = http://www.domoticz.com/
 COMMENT  = Domoticz is a Home Automation System
@@ -18,7 +18,7 @@ CONFIGURE_TARGET = myConfigure
 INSTALL_TARGET = myInstall
 
 BOOST_LIBRARIES = system thread date_time python
-ENV += BOOST_LIBRARIES="$(BOOST_LIBRARIES)" CMAKE_INCLUDE_PATH="$(STAGING_INSTALL_PREFIX)/include" CMAKE_LIBRARY_PATH="$(STAGING_INSTALL_PREFIX)/lib" PCH_COMPILE_FLAGS="$(CFLAGS)" PYTHON_VERSION="2.7" PYTHON_INC_DIR="python2.7" PYTHON_CPPFLAGS="-I$(STAGING_INSTALL_PREFIX)/lib/$(PYTHON_INC_DIR)" ADDITIONAL_CFLAGS="-I$(STAGING_INSTALL_PREFIX)/include/python2.7" ADDITIONAL_LDFLAGS="-L$(STAGING_INSTALL_PREFIX)/lib/python2.7"
+ENV += BOOST_LIBRARIES="$(BOOST_LIBRARIES)" CMAKE_INCLUDE_PATH="$(STAGING_INSTALL_PREFIX)/include" CMAKE_LIBRARY_PATH="$(STAGING_INSTALL_PREFIX)/lib" PCH_COMPILE_FLAGS="$(CFLAGS)"
 
 include ../../mk/spksrc.cross-cc.mk
 
