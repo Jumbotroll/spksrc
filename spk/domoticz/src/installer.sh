@@ -63,7 +63,8 @@ postuninst ()
 {
     # Remove link
     rm -f ${INSTALL_DIR}
-
+    # remove rules for USB serial permission setting
+    rm -f /lib/udev/rules.d/50-usbttyacm.rules
     exit 0
 }
 
@@ -76,6 +77,13 @@ preupgrade ()
     rm -fr ${TMP_DIR}/${PACKAGE}
     mkdir -p ${TMP_DIR}/${PACKAGE}
     mv ${INSTALL_DIR}/var ${TMP_DIR}/${PACKAGE}/
+    #if there's backups
+    if [ -d ${INSTALL_DIR}/backups ];then
+    mv ${INSTALL_DIR}/backups ${TMP_DIR}/${PACKAGE}/
+    fi
+    if [ -d ${INSTALL_DIR}/scripts ];then 
+    mv ${INSTALL_DIR}/scripts ${TMP_DIR}/${PACKAGE}/
+    fi
 
     exit 0
 }
@@ -85,6 +93,17 @@ postupgrade ()
     # Restore some stuff
     rm -fr ${INSTALL_DIR}/var
     mv ${TMP_DIR}/${PACKAGE}/var ${INSTALL_DIR}/
+    if [ -d ${TMP_DIR}/${PACKAGE}/backups ];then
+    mv ${TMP_DIR}/${PACKAGE}/backups ${INSTALL_DIR}/
+    fi
+    if [ -d  ${TMP_DIR}/${PACKAGE}/scripts ];then
+    #preserve the USB serial permissions rules file
+    cp ${INSTALL_DIR}/scripts/50-usbttyacm.rules ${TMP_DIR}/${PACKAGE}/scripts/
+    #preserve the new scripts dir just in case there's new/updated templates
+    mv ${INSTALL_DIR}/scripts/ ${INSTALL_DIR}/scripts.new/
+    #place the pre upgrade scripts dir into the install dir
+    mv ${TMP_DIR}/${PACKAGE}/scripts ${INSTALL_DIR}/
+    fi
     rm -fr ${TMP_DIR}/${PACKAGE}
 
     exit 0

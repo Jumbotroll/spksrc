@@ -1,6 +1,6 @@
 SPK_NAME = domoticz
-SPK_VERS = 2.0.2382
-SPK_REV = 6
+SPK_VERS = 2.0.2386
+SPK_REV = 2
 SPK_ICON = src/domoticz.png
 DSM_UI_DIR = app
 
@@ -12,7 +12,7 @@ DESCRIPTION_FRE = Domoticz est un système domotique qui vous permet de surveill
 ADMIN_PORT = 8084
 RELOAD_UI = yes
 DISPLAY_NAME = Domoticz
-CHANGELOG = "1. Added support for OpenZWave<br>2. Updated to SVN revision 2382"
+CHANGELOG = "1. Updated to SVN revision 2386"
 
 HOMEPAGE = http://www.domoticz.com/
 LICENSE  = 

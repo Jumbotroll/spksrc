@@ -21,7 +21,8 @@ start_daemon ()
     insmod ${INSTALL_DIR}/modules/cp210x.ko
     insmod ${INSTALL_DIR}/modules/pl2303.ko
 
-    # Create udev rules to set permissions to 666
+    # Create udev rules to set permissions to 666 
+    # Doing this at package start so it gets done even after DSM upgrade.  
     cp ${INSTALL_DIR}/scripts/50-usbttyacm.rules /lib/udev/rules.d/50-usbttyacm.rules
 
     su - ${USER} -c "${DOMOTICZ} -www ${PORT} -approot ${INSTALL_DIR}/ -dbase ${DB_FILE} &> $LOGFILE & echo \$! > ${PID_FILE}"
