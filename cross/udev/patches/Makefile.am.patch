@@ -1,0 +1,21 @@
+--- Makefile.in	2011-11-07 23:32:27.166230430 +0100
++++ Makefile.in.patch	2015-05-04 22:32:20.945600367 +0200
+@@ -53,7 +53,6 @@
+ libexec_PROGRAMS = udev/udevd$(EXEEXT) \
+ 	extras/firmware/firmware$(EXEEXT) \
+ 	extras/ata_id/ata_id$(EXEEXT) \
+-	extras/cdrom_id/cdrom_id$(EXEEXT) \
+ 	extras/collect/collect$(EXEEXT) \
+ 	extras/scsi_id/scsi_id$(EXEEXT) extras/v4l_id/v4l_id$(EXEEXT) \
+ 	extras/accelerometer/accelerometer$(EXEEXT) $(am__EXEEXT_1) \
+@@ -264,10 +263,6 @@
+ am_extras_ata_id_ata_id_OBJECTS = extras/ata_id/ata_id.$(OBJEXT)
+ extras_ata_id_ata_id_OBJECTS = $(am_extras_ata_id_ata_id_OBJECTS)
+ extras_ata_id_ata_id_DEPENDENCIES = libudev/libudev-private.la
+-am_extras_cdrom_id_cdrom_id_OBJECTS =  \
+-	extras/cdrom_id/cdrom_id.$(OBJEXT)
+-extras_cdrom_id_cdrom_id_OBJECTS =  \
+-	$(am_extras_cdrom_id_cdrom_id_OBJECTS)
+ extras_cdrom_id_cdrom_id_DEPENDENCIES = libudev/libudev-private.la
+ am_extras_collect_collect_OBJECTS = extras/collect/collect.$(OBJEXT)
+ extras_collect_collect_OBJECTS = $(am_extras_collect_collect_OBJECTS)

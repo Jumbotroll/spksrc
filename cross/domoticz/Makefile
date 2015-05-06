@@ -8,7 +8,7 @@ PKG_DIST_SITE = svn://svn.code.sf.net/p/domoticz/code
 PKG_DIST_FILE = $(PKG_NAME)-r$(PKG_SVN_REV).$(PKG_EXT)
 PKG_DIR = $(PKG_NAME)-r*
 
-DEPENDS = cross/boost cross/sqlite cross/curl cross/openzwave cross/cp210x cross/pl2303
+DEPENDS = cross/udev cross/boost cross/sqlite cross/curl cross/openzwave cross/cp210x cross/pl2303
 
 HOMEPAGE = http://www.domoticz.com/
 COMMENT  = Domoticz is a Home Automation System
