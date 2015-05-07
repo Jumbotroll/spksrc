@@ -24,12 +24,3 @@
  set(Boost_USE_MULTITHREADED ON)
  unset(Boost_INCLUDE_DIR CACHE)
  unset(Boost_LIBRARY_DIRS CACHE)
-@@ -414,7 +379,7 @@
-   message(STATUS "Not building on Raspberry Pi. GPIO support disabled.")
- ENDIF(RaspberryPi)
- 
--target_link_libraries(domoticz ${Boost_LIBRARIES} ${SQLITE3_LIBRARY} ${ZLIB_LIBRARIES} ${CURL_LIBRARIES} pthread lua mqtt ${CMAKE_DL_LIBS})
-+target_link_libraries(domoticz ${Boost_LIBRARIES} ${SQLITE3_LIBRARY} ${ZLIB_LIBRARIES} ${CURL_LIBRARIES} pthread lua mqtt ${CMAKE_DL_LIBS} -lrt)
- 
- ADD_PRECOMPILED_HEADER(domoticz "main/stdafx.h")
- 

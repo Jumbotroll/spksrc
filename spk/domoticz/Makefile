@@ -1,6 +1,6 @@
 SPK_NAME = domoticz
-SPK_VERS = 2.0.2402
-SPK_REV = 2
+SPK_VERS = 2.0.2418
+SPK_REV = 1
 SPK_ICON = src/domoticz.png
 DSM_UI_DIR = app
 
@@ -12,7 +12,7 @@ DESCRIPTION_FRE = Domoticz est un système domotique qui vous permet de surveill
 ADMIN_PORT = 8084
 RELOAD_UI = yes
 DISPLAY_NAME = Domoticz
-CHANGELOG = "1. Includes OpenZwave support<BR>2. fix RFlink causing crash on malformed input<BR>3. add USB drivers for pl2303<BR>4. fix backups directory permission<BR>5. upgrade now preserves scripts and backups<BR>5.  Updated to SVN revision 2402<BR>6. Removed Python dependency"
+CHANGELOG = "1. Includes OpenZwave support<BR>2. fix RFlink causing crash on malformed input<BR>3. add USB drivers for pl2303<BR>4. fix backups directory permission<BR>5. upgrade now preserves scripts and backups<BR>5.  Updated to SVN revision 2418<BR>6. Removed Python dependency<BR>7. Added Libudev"
 
 HOMEPAGE = http://www.domoticz.com/
 LICENSE  = 

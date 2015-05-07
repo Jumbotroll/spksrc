@@ -5,7 +5,7 @@ PKG_DIST_NAME = $(PKG_NAME)_$(PKG_VERS).orig.$(PKG_EXT)
 PKG_DIST_SITE = http://http.debian.net/debian/pool/main/u/$(PKG_NAME)/
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
-DEPENDS = cross/glib cross/usbutils cross/pciutils
+DEPENDS = cross/glib cross/usbutils
 
 HOMEPAGE = http://www.freedesktop.org/wiki/Software/systemd/
 COMMENT  = This package contains the files needed for developing applications that use libudev.
@@ -13,7 +13,7 @@ LICENSE  = GPL
 
 ENV+= USBUTILS_CFLAGS=" " USBUTILS_LIBS=" "
 GNU_CONFIGURE = 1
-CONFIGURE_ARGS = --disable-introspection --with-pci-ids-path=$(INSTALL_DIR)/usr/local/share/pci.ids --with-usb-ids-path=$(INSTALL_DIR)/usr/local/share/usb.ids
+CONFIGURE_ARGS = --disable-introspection --disable-gudev --with-pci-ids-path=$(INSTALL_DIR)/usr/local/share/pci.ids --with-usb-ids-path=$(INSTALL_DIR)/usr/local/share/usb.ids
 PRE_CONFIGURE_TARGET = myPreConfigure
 INSTALL_TARGET = myInstall
 

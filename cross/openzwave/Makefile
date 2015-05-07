@@ -5,6 +5,8 @@ PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = http://old.openzwave.com/downloads
 PKG_DIR = open-zwave-read-only
 
+DEPENDS= cross/udev
+
 HOMEPAGE = http://www.openzwave.com/
 COMMENT  = A Open Source implementation of the ZWave Serial API
 LICENSE  = GPL
