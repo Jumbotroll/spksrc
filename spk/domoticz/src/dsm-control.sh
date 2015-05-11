@@ -20,11 +20,17 @@ start_daemon ()
     insmod /lib/modules/ftdi_sio.ko
     insmod ${INSTALL_DIR}/modules/cp210x.ko
     insmod ${INSTALL_DIR}/modules/pl2303.ko
-
-    # Create udev rules to set permissions to 666 
-    # Doing this at package start so it gets done even after DSM upgrade.  
-    cp ${INSTALL_DIR}/scripts/50-usbttyacm.rules /lib/udev/rules.d/50-usbttyacm.rules
-
+    
+    if [ `/bin/get_key_value /etc.defaults/VERSION buildnumber` -ge "5004" ]; then
+        # DSM 5.1 supports UDEV rules. Create udev rules to set permissions to 666 
+        # Doing this at package start so it gets done even after DSM upgrade.  
+        cp ${INSTALL_DIR}/scripts/50-usbttyacm.rules /lib/udev/rules.d/50-usbttyacm.rules
+    else
+        # DSM 5.0 and earlier versions don't dynamically create devices, so create device for everything before build 5004.
+        test -e /dev/ttyUSB0 || mknod /dev/ttyUSB0 c 188 0
+        chmod 666 /dev/ttyUSB0
+    fi
+    
     su - ${USER} -c "${DOMOTICZ} -www ${PORT} -approot ${INSTALL_DIR}/ -dbase ${DB_FILE} &> $LOGFILE & echo \$! > ${PID_FILE}"
 }
 
