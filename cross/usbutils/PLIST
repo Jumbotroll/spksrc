@@ -1,4 +1,8 @@
-bin:bin/par2
-lnk:bin/par2create
-lnk:bin/par2repair
-lnk:bin/par2verify
+bin:bin/lsusb
+bin:bin/lsusb.py
+bin:bin/usb-devices
+bin:bin/usbhid-dump
+bin:sbin/update-usbids.sh
+rsc:share/usb.ids
+rsc:share/pci.ids
+rsc:share/usb.ids.gz
